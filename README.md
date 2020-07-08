@@ -34,6 +34,10 @@
 $ npm install
 ```
 
+## Set the database connection parameters
+``` config/default.yml
+``` config/development.yml
+
 ## Running the app
 
 ```bash
@@ -46,6 +50,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+## Run http://localhost:3000/products/seeding it creates some products in the product table
 
 ## Test
 

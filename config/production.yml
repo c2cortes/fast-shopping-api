@@ -1,0 +1,5 @@
+server:
+  origin: http://this-is-the-front-app-url.com
+
+db:
+  synchronize: true
