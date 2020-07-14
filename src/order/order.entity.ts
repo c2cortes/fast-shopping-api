@@ -17,6 +17,10 @@ export class Order extends BaseEntity {
     @IsNotEmpty()
     @ManyToOne(type => Customer, customer => customer.orders)
     customer: Customer;
+
+    @IsNotEmpty()
+    @Column({ length: 8 })
+    code: string;
     
     // Common Columns ---------------------------------------------------------------------------------
     @IsNotEmpty()

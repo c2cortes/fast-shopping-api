@@ -1,7 +1,8 @@
-import { Controller, Post, Body, ValidationPipe } from '@nestjs/common';
+import { Controller, Post, Body, ValidationPipe, Get, Param } from '@nestjs/common';
 import { CustomerService } from './customer.service';
 import { Order } from 'src/order/order.entity';
 import { OrderService } from 'src/order/order.service';
+import { Customer } from './customer.entity';
 
 @Controller('customer')
 export class CustomerController {
@@ -9,7 +10,13 @@ export class CustomerController {
 
     @Post()
     async saveCustomer(@Body(ValidationPipe) params):Promise<Order> {
-        const currentCustomer = await this.customerService.storeCustomer(params.data);
+        let currentCustomer;
+        if(params.data.id){
+            currentCustomer = params.data;
+        } else {
+            currentCustomer = await this.customerService.storeCustomer(params.data);
+        }
+        console.log('currentCustomer => LET', currentCustomer);
         const orderService = new OrderService();
         const currentOrder = await orderService.storeOrder(currentCustomer, params.cartItems);
         return currentOrder;
@@ -18,5 +25,12 @@ export class CustomerController {
     @Post('/seeding')
     seeding() {
       return this.customerService.seeding();
+    }
+
+    @Get('/:email')
+    async getCustomer(@Param('email') email: String):Promise<Customer> {
+        const currentCustomer = await this.customerService.validateExistingCustomer(email);
+        console.log('currentCustomer => email from params', email);
+        return currentCustomer;
     }
 }

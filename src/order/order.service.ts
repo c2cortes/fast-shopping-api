@@ -7,6 +7,7 @@ export class OrderService {
         const order = new Order();
         order.products = cartItems;
         order.customer = currentCustomer;
+        order.code = (Math.floor(Math.random() * Math.floor(1000))).toString();
         return await order.save();
     }
 }

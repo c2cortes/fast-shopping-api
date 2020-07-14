@@ -24,6 +24,11 @@ export class CustomerService extends TypeOrmCrudService<Customer> {
         return await customer.save();
     }
 
+    async validateExistingCustomer(email):Promise<Customer>{
+      const customer = await this.customerRepository.findOne({ email });
+      return customer;
+    }
+
     async seeding() {
         const c = new Customer();
           c.name = 'Cristian';
