@@ -1,27 +1,23 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
-import { IsNotEmpty } from 'class-validator';
-import { Customer } from '../customer/customer.entity';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, JoinColumn } from 'typeorm';
+import { IsNotEmpty, IsEmail } from 'class-validator';
+import { Product } from 'src/product/product.entity';
 
 @Entity()
-export class Order extends BaseEntity {
+export class Category extends BaseEntity {
 
     // COLUMNAS ---------------------------------------------------------------------------------------
     @PrimaryGeneratedColumn()
     id: number;
-    
+
     @IsNotEmpty()
-    @Column({ type: 'json' })
-    products: string;
+    @Column({ length: 50})
+    name: string;
 
     // Relations ---------------------------------------------------------------------------------------
     @IsNotEmpty()
-    @ManyToOne(type => Customer, customer => customer.orders)
-    customer: Customer;
+    @OneToMany(type => Product, product => product.category)
+    products: Product[];
 
-    @IsNotEmpty()
-    @Column()
-    code: string;
-    
     // Common Columns ---------------------------------------------------------------------------------
     @IsNotEmpty()
     @Column({ default: true })

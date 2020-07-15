@@ -1,5 +1,6 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, JoinColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
 import { IsNotEmpty, IsPhoneNumber } from 'class-validator';
+import { Category } from 'src/category/category.entity';
 
 @Entity()
 export class Product extends BaseEntity {
@@ -23,6 +24,9 @@ export class Product extends BaseEntity {
     @IsNotEmpty()
     @Column({ type: "numeric" })
     price: number;
+
+    @ManyToOne(type => Category, category => category.products)
+    category: Category;
 
     // Common Columns ---------------------------------------------------------------------------------
     @IsNotEmpty()

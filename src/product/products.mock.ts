@@ -4,7 +4,7 @@ const productsMock = [
         image: 'chrome-book-11.jpg',
         name: 'HP Chromebook 11',
         price: '199.99',
-        category: '1',
+        categoryId: '1',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     },
     {
@@ -12,7 +12,7 @@ const productsMock = [
         image: 'chrome-book-14.jpg',
         name: 'HP Chromebook 14',
         price: '209.99',
-        category: '1',
+        categoryId: '1',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     },
     {
@@ -20,7 +20,7 @@ const productsMock = [
         image: 'chrome-book-asus.jpg',
         name: 'Asus Chromebook',
         price: '3000',
-        category: '1',
+        categoryId: '1',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     },
     {
@@ -28,7 +28,7 @@ const productsMock = [
         image: 'ipad-air.jpg',
         name: 'iPad Air',
         price: '449.99',
-        category: '1',
+        categoryId: '1',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     },
     {
@@ -36,7 +36,7 @@ const productsMock = [
         image: 'ipad-mini.jpg',
         name: 'iPad Mini',
         price: '399.99',
-        category: '1',
+        categoryId: '1',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     },
     {
@@ -44,7 +44,7 @@ const productsMock = [
         image: 'mi-pad-2.jpg',
         name: 'Mi Pad 2',
         price: '199.99',
-        category: '1',
+        categoryId: '1',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     }
 ];

@@ -40,16 +40,8 @@ $ npm install
 
 ## Running the app
 
-```bash
-# development
-$ npm run start
-
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
 
 ## Run http://localhost:3000/products/seeding it creates some products in the product table
 
